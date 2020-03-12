@@ -20,7 +20,7 @@ from docopt import docopt
 # Bug
 # try:  # pip >= 10
 from pip._internal.req import parse_requirements
-from pip.src.pip._internal.network.session import PipSession as session
+from pip._internal.network.session import PipSession as session
 from pip._internal.index.package_finder import PackageFinder as _PackageFinder
 from pip._internal.models.search_scope import SearchScope
 from pip._internal.models.selection_prefs import SelectionPreferences
