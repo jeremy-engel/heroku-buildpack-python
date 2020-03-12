@@ -16,6 +16,7 @@ from pip.req import parse_requirements
 from pip.index import PackageFinder
 from pip._vendor.requests import session
 
+
 # Bug
 # try:  # pip >= 10
 #     from pip._internal.req import parse_requirements
@@ -30,7 +31,7 @@ from pip._vendor.requests import session
 #         selection_prefs = SelectionPreferences(allow_yanked=False)
 #         return PackageFinder.create(search_scope, selection_prefs, session=session)
 
-except ImportError:  # pip <= 9.0.3
+# except ImportError:  # pip <= 9.0.3
 
 
 requests = session()
