@@ -11,6 +11,7 @@ if [ ! "$SKIP_PIP_INSTALL" ]; then
 
     cp .heroku/python/requirements-declared.txt requirements-declared.txt
 
+    /app/.heroku/python/bin/pip --version
 
     if ! pip-diff --stale requirements-declared.txt requirements.txt --exclude setuptools pip wheel > .heroku/python/requirements-stale.txt; then
       mcount "failure.bad-requirements"
