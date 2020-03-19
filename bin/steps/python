@@ -95,7 +95,6 @@ if [ -f .heroku/python-version ]; then
   fi
 fi
 
-
 # Check if we should reinstall python dependencies
 if [[ ! -f "$CACHE_DIR/.heroku/requirements.txt" ]]; then
   # IF there's no cached dependencies, update cached version of requirements.txt
@@ -115,6 +114,7 @@ else
     # if there are any differences, clear the Python cache
     # Installing Python over again does not take noticably more time
     rm -rf .heroku/python
+  fi
 fi
 
 if [ ! "$SKIP_INSTALL" ]; then
