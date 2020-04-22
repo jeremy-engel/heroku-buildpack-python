@@ -4,6 +4,13 @@
 
 --------------------------------------------------------------------------------
 
+# 169 (2020-04-22)
+
+- Add a Hatchet test for python 3.8.2
+- Set Code Owners to @heroku/langauges
+- Bugfix: Caching on subsequent redeploys
+- Update tests to support latest version of Python
+
 # 168 (2020-04-06)
 
 - Doc: Update Readme with version numbers
