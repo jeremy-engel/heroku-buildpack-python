@@ -46,7 +46,8 @@ To specify your python version, you also need a `runtime.txt` file - unless you 
 
 Current default Python Runtime: Python 3.6.9
 
-Alternatively, you can provide a `setup.py` file, or a `Pipfile`. Using `Pipenv` will generate `runtime.txt` based on `python-version` at build time.
+Alternatively, you can provide a `setup.py` file, or a `Pipfile`.
+Using `pipenv` will generate `runtime.txt` at build time if one of the field `python_version` or `python_full_version` is specified in the `requires` section of your `Pipfile`.
 
 Specify a Buildpack Version
 ---------------------------
@@ -61,10 +62,10 @@ Specify a Python Runtime
 
 Supported runtime options include:
 
-- `python-3.8.2`
-- `python-3.7.6`
+- `python-3.8.3`
+- `python-3.7.7`
 - `python-3.6.10`
-- `python-2.7.17`
+- `python-2.7.18`
 
 ## Tests
 
