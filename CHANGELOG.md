@@ -1,5 +1,9 @@
 # Python Buildpack Changelog
 
+# 171 (2020-07-07)
+
+- Python 3.6.11 and 3.7.8 are now available (CPython).
+
 # 170 (2020-05-19)
 
 - Python 2.7.18, 3.5.9, 3.7.7 and 3.8.3 are now available (CPython).
