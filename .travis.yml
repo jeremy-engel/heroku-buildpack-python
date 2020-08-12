@@ -12,14 +12,13 @@ jobs:
   - name: Bash linting (shellcheck)
     script: make check
   - name: Hatchet integration tests
-    if: env(TRAVIS_PULL_REQUEST_SLUG) = env(TRAVIS_REPO_SLUG)
+    if: env(HEROKU_API_USER) IS present AND env(HEROKU_API_KEY) IS present
     language: ruby
     rvm:
-      - 2.6.6
+      - 2.7
     before_script:
-      - gem install bundler -v 1.16.2
-    script:
       - bundle exec hatchet ci:setup
+    script:
       - PARALLEL_SPLIT_TEST_PROCESSES=11 bundle exec parallel_split_test spec/hatchet/
 
 env:
@@ -40,5 +39,3 @@ env:
     - IS_RUNNING_ON_CI=true
     - HATCHET_APP_LIMIT=80
     - HATCHET_DEPLOY_STRATEGY=git
-    - secure: yjtlPE5FbVxTKnjUy/tZUBgSEf4qADD3QOxtgziuid73S0U/1IEXlMGFULsQzIjtlHKmHeywZqpVVEpthIH4RuT7uoX1Pb7SSM/g0T8fT3VoEFbFK1uYl0oZQbUS4Klxv9tPiumj8if3m6ULEGIz1X0wZcMOC0tMLwVCnwmap0E=
-    - secure: ZeFTHWwnpIKE9nAqs88ocmiQh7bKce84lilGm5J23nf3N6V4wNyLwqlkvsM008WGBCaOg9AUx7ZunasT0ANsR5gLP3eV2UUg7ILdRgV2Gy13eNRFheC4PHdN92RqQ3aKoqlIv2K999xlhVjod0NzhkQQXB6PddfQINbuU7ks6As=

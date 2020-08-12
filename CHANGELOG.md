@@ -3,6 +3,12 @@
 ## Unreleased
 
 
+## v176 (2020-08-12)
+
+- Rebuild the Python 3.4.10 archives with the correct version of Python (#1048).
+- Fix the security update version check message for apps using PyPy (#1040).
+- Remove `vendor/test-utils` (#1043).
+
 ## v175 (2020-08-05)
 
 - Update pip from 20.0.2 to 20.1.1 for Python 2.7 and Python 3.5+ (#1030).

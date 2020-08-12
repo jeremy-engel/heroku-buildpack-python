@@ -54,29 +54,14 @@ testPython3_4() {
   assertCaptured $LATEST_34
   assertNotCaptured "security update"
   assertCaptured "Installing pip 19.1.1, setuptools 43.0.0 and wheel 0.33.6"
-  # if cedar 14 and legacy binaries, fail. if cedar 14 and staging, succeed.
-  if [[ ! -n $USE_STAGING_BINARIES ]] && [[ $STACK == "cedar-14" ]]; then
-      assertCapturedError
-# if heroku 18 and legacy binaries, succeed. if heroku 18 and staging, fail.
-  elif [[ -n $USE_STAGING_BINARIES ]] && [[ $STACK == "heroku-18" ]]; then
-      assertCapturedError
-  else
-#   all else succeed
-    assertCapturedSuccess
-  fi
+  assertCapturedSuccess
 }
 
 testPython3_4_warn() {
   compile "python3_4_warn"
   assertCaptured "python-3.4.9"
   assertCaptured "security update!"
-# if heroku 18 and legacy binaries, succeed. if heroku 18 and staging, fail.
-  if [[ -n $USE_STAGING_BINARIES ]] && [[ $STACK == "heroku-18" ]]; then
-      assertCapturedError
-  else
-#   all else succeed
-    assertCapturedSuccess
-  fi
+  assertCapturedSuccess
 }
 
 testPython3_4_fail() {
@@ -197,24 +182,42 @@ testPython3_8_fail() {
 
 testPypy3_6() {
   compile "pypy3_6"
+  assertCaptured "Installing pypy"
+  assertNotCaptured "security update"
+  assertCaptured "$LATEST_PYPY_36"
+  assertCaptured "Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2"
+  assertCapturedSuccess
+}
+
+testPypy3_6_warn() {
+  compile "pypy3_6_warn"
   if [[ $STACK = "cedar-14" ]]; then
     assertCapturedError
   else
     assertCaptured "Installing pypy"
-    assertCaptured "$PYPY_36"
-    assertCaptured "Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2"
+    assertCaptured "security update!"
+    assertCaptured "$LATEST_PYPY_36"
     assertCapturedSuccess
   fi
 }
 
 testPypy2_7() {
   compile "pypy2_7"
+  assertCaptured "Installing pypy"
+  assertNotCaptured "security update"
+  assertCaptured "$LATEST_PYPY_27"
+  assertCaptured "Installing pip 20.1.1, setuptools 44.1.1 and wheel 0.34.2"
+  assertCapturedSuccess
+}
+
+testPypy2_7_warn() {
+  compile "pypy2_7_warn"
   if [[ $STACK = "cedar-14" ]]; then
     assertCapturedError
   else
     assertCaptured "Installing pypy"
-    assertCaptured "$PYPY_27"
-    assertCaptured "Installing pip 20.1.1, setuptools 44.1.1 and wheel 0.34.2"
+    assertCaptured "security update!"
+    assertCaptured "$LATEST_PYPY_27"
     assertCapturedSuccess
   fi
 }
