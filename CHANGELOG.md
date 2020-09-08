@@ -3,6 +3,10 @@
 ## Unreleased
 
 
+## v178 (2020-09-07)
+
+- Python 3.5.10 is now available (CPython) (#1062).
+
 ## v177 (2020-08-18)
 
 - Python 3.6.12 and 3.7.9 are now available (CPython) (#1054).
