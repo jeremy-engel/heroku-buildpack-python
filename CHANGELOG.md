@@ -3,6 +3,10 @@
 ## Unreleased
 
 
+## v181 (2020-09-29)
+
+- PyPy 2.7 and 3.6, version 7.3.2 are now available (Note: PyPy support is in beta) (#1081).
+
 ## v180 (2020-09-24)
 
 - Python 3.8.6 is now available (CPython) (#1072).
