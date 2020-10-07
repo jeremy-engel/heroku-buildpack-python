@@ -40,14 +40,18 @@ testPython3_4() {
   assertCaptured $LATEST_34
   assertNotCaptured "security update"
   assertCaptured "Installing pip 19.1.1, setuptools 43.0.0 and wheel 0.33.6"
-  assertCapturedSuccess
+  # Can't use `assertCapturedSuccess` since Pip outputs a Python 3.4 EOL warning to stderr,
+  # and the newest Pip that works on Python 3.4 doesn't support `PIP_NO_PYTHON_VERSION_WARNING`.
+  assertCapturedSuccessWithStdErr
 }
 
 testPython3_4_warn() {
   compile "python3_4_warn"
   assertCaptured "python-3.4.9"
   assertCaptured "security update!"
-  assertCapturedSuccess
+  # Can't use `assertCapturedSuccess` since Pip outputs a Python 3.4 EOL warning to stderr,
+  # and the newest Pip that works on Python 3.4 doesn't support `PIP_NO_PYTHON_VERSION_WARNING`.
+  assertCapturedSuccessWithStdErr
 }
 
 testPython3_5() {
@@ -134,6 +138,34 @@ testPython3_8_warn() {
     assertCaptured "Installing SQLite3"
     assertCapturedSuccess
   fi
+}
+
+testPython3_9() {
+  # Cedar-14 is EOL, so we're not building new major Python versions for it.
+  if [[ "${STACK}" = "cedar-14" ]]; then
+    return
+  fi
+  compile "python3_9"
+  assertNotCaptured "security update"
+  assertCaptured $LATEST_39
+  assertCaptured "Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2"
+  assertCaptured "Installing SQLite3"
+  assertCapturedSuccess
+}
+
+testPython3_9_warn() {
+  # Cedar-14 is EOL, so we're not building new major Python versions for it.
+  if [[ "${STACK}" = "cedar-14" ]]; then
+    return
+  fi
+  # Can't test the version warning until there is at least one old version of Python 3.9.
+  if [[ "${LATEST_39}" = "python-3.9.0" ]]; then
+    return
+  fi
+  compile "python3_9_warn"
+  assertCaptured "python-3.9.0"
+  assertCaptured "security update!"
+  assertCapturedSuccess
 }
 
 testPythonVersionInvalid() {

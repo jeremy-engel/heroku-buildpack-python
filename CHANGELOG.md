@@ -3,6 +3,13 @@
 ## Unreleased
 
 
+## v182 (2020-10-06)
+
+- Python 3.9.0 is now available (CPython) (#1090).
+- Migrate from the `lang-python` S3 bucket to `heroku-buildpack-python` (#1089).
+- Remove `vendor/shunit2` (#1086).
+- Replace `BUILDPACK_VENDOR_URL` and `USE_STAGING_BINARIES` with `BUILDPACK_S3_BASE_URL` (#1085).
+
 ## v181 (2020-09-29)
 
 - PyPy 2.7 and 3.6, version 7.3.2 are now available (Note: PyPy support is in beta) (#1081).
