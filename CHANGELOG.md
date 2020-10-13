@@ -3,6 +3,10 @@
 ## Unreleased
 
 
+## v183 (2020-10-12)
+
+- Add support for Heroku-20 (#968).
+
 ## v182 (2020-10-06)
 
 - Python 3.9.0 is now available (CPython) (#1090).
