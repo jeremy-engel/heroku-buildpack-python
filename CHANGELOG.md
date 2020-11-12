@@ -3,6 +3,14 @@
 ## Unreleased
 
 
+## v185 (2020-11-12)
+
+- Error if the unsupported `BUILD_WITH_GEO_LIBRARIES` env var is set (#1115).
+- Remove deprecated GDAL/GEOS/PROJ support (#1113).
+- Remove vendored `jq` binary (#1112).
+- Remove redundant Mercurial install step (#1111).
+- Remove support for the Cedar-14 stack (#1110).
+
 ## v184 (2020-10-21)
 
 - Vendor buildpack-stdlib instead of fetching from S3 (#1100).
